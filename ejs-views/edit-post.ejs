@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <form id="post-form">
+    <div class="form-info">
+      <label>Id
+        <input type="text" name="id" value="<%= post.id %>">
+      </label>
+      <label>Filename
+        <input type="text" name="title" value="<%= post.title %>">
+      </label>
+      <label>Name
+        <input type="text" name="author" value="<%= post.author %>">
+      </label>
+    </div>
+    <div class="form-text">
+      <label>Cost
+        <input type="text" name="text" value="<%= post.text %>">
+      </label>
+    </div>
+    <div class="form-button">
+      <input id="addButton" type="submit" value="Submit">
+    </div>
+  </form>
+  <script defer type="module" src="/edit-post.js" ></script>  
+</body>
+</html>

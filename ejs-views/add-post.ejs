@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+<body>
+  <%- include('./partials/nav.ejs') %>
+
+  <input id="upload" type='file' />
+  <br>
+  <div class="preview-block">
+    <img class="imgpreview" id="myImg" src="#" width="300px">
+  </div>
+
+  <form >
+    <div class="form-info">
+      <label>Название файла
+        <input autocomplete="off" id="filename" type="text" name="title">
+      </label>
+      <label>Цена (пример: "от 8 000 000 р")
+        <input autocomplete="off" type="text" name="author" id="author">
+      </label>
+    </div>
+    <div class="form-text">
+      <label>Название авто (Nissan Juke)
+        <input autocomplete="off" id="text" name="text" type="text"></input>
+      </label>
+    </div>
+    <div class="form-button">
+      <input id="addButton" type="submit" value="Submit">
+    </div>
+  </form>
+  <script defer type="module" src="/add-script.js" ></script>  
+</body>
+</html>

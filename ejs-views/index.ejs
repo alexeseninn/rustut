@@ -1,0 +1,263 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>gayass</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="/bootstrap.min.css">
+        <link rel="stylesheet" href="/style.css">
+
+		<script defer src="/script.js" ></script>  
+    </head>
+
+    <body class="body">
+        <!--Home page style-->
+        <header class="header">
+			<div class="header-container">
+				<div class="header-logo">
+					<p>Cars from Japan</p>
+				</div>
+				<div class="menu-button">
+					<div class="dropdown">
+						<img src="/headerimg.png" width="40rem" alt="Кнопка «button»">
+						<div class="dropdown-content">
+							<button id="enterButton" class="no-button"><a href="#">Войти</a></button>
+							<a href="#thank-you">Оставить заявку</a>
+						</div>
+					</div>
+				</div>
+			</div>
+        </header>
+			
+				<!-- Achivement -->
+				<div class="achivement">
+					<div class="left-void"></div>
+					<div class="overlay sections">
+						<div class="achivement-content">
+							<div class="col-sm-8 col-xs-12">
+								<div class="achivement-details">
+									<h2>Пожалуй, лучшая компания для доставки автомобиля</h2>
+									<p>Хотите привезти машину или запчасть из Японии?
+										Здесь вы можете ознакомиться с малой частью наших возможностей! Для более подробной информации оставляйте заявку.</p>
+									<a href="#thank-you" class="buttona"> Оставить заявку </a>
+								</div>
+							</div>
+						</div>
+					</div>	
+					<div class="right-void"></div>	
+				</div>
+
+				<%- include('./partials/auth.ejs') %>
+
+		<div class="main">
+
+			<div class="left-side">
+				<a id="addPostButton" class="addPost" href="newpost.html">Добавить пост</a> 
+			</div>
+
+			<div class="center-side">
+
+				<!-- About us -->
+				<div class="about-us">
+					<div class="about-us-upside">
+						<h3 class="h3">О нас и нашей компании</h3>
+						<img src="/separator.png" alt="Separator" />
+					</div>
+					<div class="about-us-downside">
+						
+						<div class="about-container">
+							<h5 class="h5">Чем мы занимаемся</h5>
+							<p class="text-about">Мы занимаемся покупкой и доставкой автомобилей уже более десяти лет, за это время было 
+								привезено более сотни автомобилей самых разных классов, от скромных Daihatsu Boon и Honda 
+								Fit, до представительских Toyota Crown, BMW X5 и Toyota Alfard. От заряженных Subaru Impreza 
+								WRX и Toyota Cresta Roulant G до практичных Honda Stepwgn и Subaru Outback.</p>
+						</div>
+
+						<div class="void"></div>
+							
+						<div class="about-container">
+							<h5 class="h5">Почему нам доверяют</h5>
+							<p class="text-about">Мы тщательно подходим к процессу выбора и покупки автомобиля, всякий раз стремимся 
+								полностью понять цели клиента, его финансовые возможности, для нас крайне важно купить 
+								автомобиль в хорошем состоянии, избегая при этом излишних затрат. На аукционах всегда 
+								тщательно изучаем лоты, убеждаясь в хорошем состоянии автомобиля, всегда согласуем ставки с 
+								клиентами.</p>
+						</div>
+
+						<div class="void"></div>
+
+						<div class="about-container">
+							<h5 class="h5">Почему с нами удобно</h5>
+							<p class="text-about">Мы всегда помогаем клиентам в обслуживании автомобилей, консультируем в подборе запчастей 
+								и расходников, заказываем запчасти у поставщиков, по ценам ниже рыночных, или помогаем найти 
+								и доставить запчасти с контрактных автомобилей без пробега по России.</p>
+						</div>
+							
+					</div>
+				</div>
+			
+				<!-- Portfolio -->
+
+				<div class="portfolio">
+
+					<div class="portfolio-heading">
+						<h3 class="h3">Малая часть того, что мы возим</h3>
+						<img src="/separator.png" alt="separator" />
+					</div>
+						<div id="grid-items" class="grid-items">
+							<% if (posts.length) { %>
+								<% posts.forEach(({ id, title, createdAt, text, author }) => { %>
+									<div class="grid-item">
+										<img src="/portfolio/<%= title %>" class="img" alt="Portfolio" />
+										<div>
+											<h2 class="portfolio-carname"><%= text %></h2>
+											<p><%= author %></p>
+										</div>
+									</div>
+								<% }) %>
+							<% } %>
+						</div>
+				</div>
+
+				<!-- Features -->
+				<div class="features">
+
+					<div class="portfolio-heading">
+						<h3 class="h3">Почему нам доверяют</h3>
+						<img src="/separator.png" alt="separator" />
+					</div>
+
+					<div class="features-cases">
+								<div class="features-case">
+									<div>
+										<h5>Откуда мы появились</h5>
+										<p>Большинство наших клиентов узнавали о нас через «сарафанное радио», мы начинали работать с 
+											того, что привезли автомобиль Toyota Probox нашему близкому родственнику, затем привезли 
+											себе Daihatsu Boon, дальше к нам приходили всё новые люди, желавшие обновить автомобиль.  </p>
+										<p> Дело в том, что автомобиль с Японии, как правило будет иметь более хорошую комплектацию и 
+											состояние, чем такой же автомобиль купленный в России за ту же цену, порой состояние 
+											автомобиля просто поражает, нам случалось видеть автомобили возрастом 20 лет в состоянии 
+											нового. </p>
+									</div>
+									<div class="features-void"></div>
+									<img src="/counterup/1trust.png" alt="">
+								</div>
+								<div class="features-case">
+									<img class="pseudo" src="/counterup/2trust.png" alt="">
+									<div class="features-void"></div>
+									<div>
+										<h5>Вы все знаете сразу</h5>
+										<p>Что немаловажно, мы сразу говорим обо всех условия покупки автомобиля и сразу озвучиваем 
+											стоимость наших услуг и первый взнос. Соответственно, заносим все эти данные в договор. 
+											Поскольку у нас небольшая компания, мы не берем много денег за свою работу, в среднем около 
+											40 000 рублей, причем получаем их уже при передаче автомобиля клиенту. </p>
+										<p>Первый взнос 
+											составляет 10% от предполагаемой стоимости автомобиля в Японии, но не менее 50 000 рублей. 
+											Он необходим для возможности торгов на аукционах, впоследствии он будет включён в стоимость 
+											доставки автомобиля по России.</p>
+									</div>
+									<img class="pseudo2" src="/counterup/2trust.png" alt="">
+								</div>
+								<div class="features-case">
+									<div>
+										<h5>Тесное взаимодействие с заказчиком</h5>
+										<p>В процессе торгов мы обсуждаем с клиентом все ставки, смотрим на комплектацию, состояние, 
+											место эксплуатации автомобиля, переводим аукционные листы. Помогаем клиентам выбрать 
+											наиболее подходящий автомобиль, говорим о возможных подводных камнях те или иных моделей. </p>
+									</div>
+									<div class="features-void"></div>
+									<img src="/counterup/3trust.png" alt="">
+								</div>
+					</div>
+				</div>
+
+
+				<!-- Counterup -->
+				<div class="counterups">
+									<div class="counterup">
+										<div class="counterup-photo">
+											<img src="/counterup/worker.svg" alt="counterup" />
+										</div>
+										<div class="counterup-content">
+											<h5 class="count-number">78</h5>
+											<h6>Довольных клиентов</h6>
+										</div>
+									</div>
+								
+									<div class="counterup">
+										<div class="counterup-photo">
+											<img src="/counterup/clock.svg" alt="counterup" />
+										</div>
+										<div class="counterup-content">
+											<h5 class="count-number">11</h5>
+											<h6>Лет на рынке</h6>
+										</div>
+									</div>
+								
+									<div class="counterup">
+										<div class="counterup-photo">
+											<img src="/counterup/setting-two.svg" alt="counterup" />
+										</div>
+										<div class="counterup-content">
+											<h5 class="count-number">278 635</h5>
+											<h6>Запчастей привезено</h6>
+										</div>
+									</div>
+								
+									<div class="counterup">
+										<div class="counterup-photo">
+											<img src="/counterup/car.svg" alt="counterup" />
+										</div>
+										<div class="counterup-content">
+											<h5 class="count-number">123</h5>
+											<h6>Автомобиля привезено</h6>
+										</div>
+									</div>
+				</div>
+				
+
+
+				<!-- Sections -->
+				<div id="thank-you" class="thankyou">
+				
+					<div class="heading-content text-center">
+						<h3>Оставить заявку!</h3>
+					</div>
+				
+					<!-- thank you -->
+						<div class="wrapper">
+								<div class="thank-you-form">
+									<div>
+										<div class="form-group">
+											<input autocomplete="off" id="name" type="text" class="form-control1" placeholder="name">
+										</div>
+										<div class="form-group">
+											<input autocomplete="off" id="email" type="email" class="form-control2" placeholder="email">
+										</div>
+										
+										<div class="form-group">
+											<input autocomplete="off" id="message" class="form-control3" placeholder="message"></input>
+										</div>
+									</div>
+										
+									<div class="buttontq">
+										<button id="sendMessage">send</button>
+									</div>
+								</div>
+						</div>
+				</div> <!-- /container -->   
+			</div>
+		</div>    
+		
+        <!--Footer-->
+        <footer class="footer">
+				<p>Made by drl1ng.</p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <h1>Posts:</h1>
+  <ul>
+    <% if (posts.length) { %>
+      <% posts.forEach(({ id, title, createdAt, text, author }) => { %>
+        <li>
+          <article>
+            <h2>
+              <a href="/posts/<%= id %>"><%= title %></a>
+            </h2>
+            <p><%= text %></p>
+            <div class="info">
+              <span><%= createdAt.toLocaleDateString() %></span>
+              <span><%= author %></span>
+            </div>
+            <button class="btn-delete" data-id="<%= id %>" data-title="<%= title %>">
+              <i class="fas fa-trash-alt" data-id="<%= id %>" data-title="<%= title %>"></i>
+            </button>
+          </article>
+        </li>
+      <% }) %>
+    <% } %>
+  </ul>
+
+  <script>
+    document.addEventListener('click', (e) => {
+      let tkn = getCookie("token")
+      const formData = new FormData();
+      const id = e.target?.dataset?.id, path = e.target?.dataset?.title;
+
+      formData.delete('id');      formData.append("id", id);
+      formData.delete('path');    formData.append("path", path);
+
+      function getCookie(name) {
+        let matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+      }
+
+      if (id) {
+        fetch(`http://localhost:3000/auth/delete`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            "Authorization": `Bearer ${tkn}`
+            },
+            body: JSON.stringify(Object.fromEntries(formData))
+        }).then(() => {
+          window.location.reload();
+        })
+      }
+    });
+  </script>
+</body>
+</html>
