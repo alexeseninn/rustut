@@ -73,16 +73,17 @@ Section
 .header{
     height: 80px;
     position: sticky;
-    top: 0px;
+    top: -1px;
 	background:rgba(0,0,0,0.7);
 	padding-top:20px;
     display: flex;
     justify-content: center;
-    z-index: 1;
+    z-index: 3;
 }
 .header-container{
     width: 70%;
     display: flex;
+    align-items: center;
 }
 .header-logo{
     width: 100%;
@@ -101,7 +102,7 @@ Section
     margin-bottom: 16px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
     .header-logo{
         font-size: x-large;
     }
@@ -111,16 +112,31 @@ Section
     .menu-button img{
         scale: 0.8;
     }}
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 430px) {
+    .header{
+        height: 60px;
+    }
+    .header-container{
+        width: 90%;
+        display: flex;
+    }
     .header-logo{
         font-size: large;
     }
     .menu-button{
-        margin-bottom: 6px;
+        justify-content: center;
+        align-items: center;
     }
     .menu-button img{
         scale: 0.6;
-    }}
+    }
+    .overlay {
+        background-color: rgba(0, 0, 0, .55);
+        width: 100%;
+        overflow:hidden;
+        min-height:600px;
+    }
+}
 
 /* Dropdown Button */
 .dropbtn {
@@ -135,9 +151,10 @@ Section
     display: none;
     position: absolute;
     background-color: gray;
+    right: 0;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 3;
 }
 .dropdown-content a {
     color: black;
@@ -195,6 +212,7 @@ Section
     background-color:  rgba(255,255,255,.6);
     font-weight: 700;
     padding: .5em 2em;
+    margin-top: 2em;
     outline: none;
     border: 2px solid;
     border-radius: 8px;
@@ -225,21 +243,24 @@ Section
 	max-width:60%;
 }
 
-@media screen and (max-width: 899px) {
-    .achivement-photo{
-        display: none;
-    }
-}
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     .achivement-details h2{
         font-size: 32px;
         margin-bottom: 20px;
     }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 430px) {
+    .left-void{
+        width: 5%;
+        background: rgba(0, 0, 0, 0.55);
+    }
+    .right-void{
+        width: 5%;
+        background: rgba(0, 0, 0, 0.55);
+    }
     .achivement{
-        max-height: 550px;
-        background: url(/cars2.jpg) no-repeat top center fixed;
+        max-height: 500px;
+        background: no-repeat top center/110% fixed url(/cars2.jpg);
     }
     .achivement-details{
         margin-top: 60px;
@@ -258,6 +279,7 @@ Section
 
 .main{
 	display: flex;
+    width: 100%;
 }
 
 .left-side{
@@ -266,6 +288,10 @@ Section
 
 .center-side{
 	width: 70%;
+}
+
+.right-side{
+    width: 15%;
 }
 
 /*For About Section */
@@ -306,7 +332,19 @@ Section
 	font-size: 16px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
+    .left-side{
+        width: 5%;
+    }
+    .left-void{
+        width: 5%;
+    }
+    .right-side{
+        width: 5%;
+    }
+    .center-side{
+        width: 90%;
+    }
     .about-us{
         padding-top: 12px;
         padding-bottom: 12px;
@@ -320,13 +358,13 @@ Section
         width: 100%;
     }
     .text-about{
-        font-size: 12px;
+        font-size: 14px;
     }
     .h5{
-        font-size: 16px;
+        font-size: 18px;
     }
     .h3{
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 700;
     }
 }
@@ -436,22 +474,15 @@ Section
 .features-void{
     width: 25%;
 }
-
-.features-case h5{
-	font-size:22px;
-	font-family: 'Montserrat', sans-serif;
-	color:#000;
-	text-transform:uppercase;
-}
 .features-case h6{
 	font-family: 'Montserrat', sans-serif;
 }
-.features-case p{
-	font-size:16px;
-    text-align: left;
-}
 
 @media screen and (max-width: 768px) {
+    .pseudo-container{
+        display: flex;
+        justify-content: center;
+    }
     .features-case{
         display: flex;
         flex-direction: column;
@@ -459,9 +490,10 @@ Section
     .pseudo{ display: none; }
     .pseudo2{ display: flex; }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 430px) {
     .features-case{
-        margin-bottom:24px;
+        margin-bottom: 20px;
+        margin-top: 24px;
     }
     .features-case img{ width: 100%; }
 }
@@ -476,31 +508,35 @@ Section
     padding-top: 100px;
 }
 .counterup{
-    width: 100%;
+    width: 25%;
     display: flex;
     justify-content: center;
 }
 .counterup-photo{
+    display: flex;
 	width: 25%;
-	float:left;
+	align-items: center;
+    justify-content: center;
 }
 .counterup-content{
-	padding-top:10px;
+    width: 75%;
     padding-left: 4%;
 }
 .counterup-content h5{
 	font-family: 'Montserrat', sans-serif;
 	font-size:22px;
+    text-align: center;
 }
 .counterup-content h6{
 	font-size:18px;
 	font-family: 'Montserrat', sans-serif;
+    text-align: center;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 430px) {
     .counterups{
         padding-bottom: 30px;
-        padding-top: 50px;
+        padding-top: 12px;
     }
     .counterup img{
         scale: 0.9;
@@ -508,6 +544,16 @@ Section
 }
 
 @media screen and (max-width: 1399px) {
+    .counterup-photo{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: baseline;
+    }
+    .counterup-content{
+        width: 100%;
+        padding-left: 0%;
+    }
     .counterup{
         flex-direction: column;
         justify-content: center;
@@ -525,7 +571,7 @@ Section
 .thankyou{
     justify-content: center;
     width: 100%;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
 }
 .wrapper{
     display: flex;
@@ -583,5 +629,23 @@ Section
 	justify-content: center;
 	background:#292929;
 	color:#707070;
-	padding:40px 0;
+	padding: 20px 20px;
+    padding-bottom: 2px;
+}
+footer a{
+    line-height: 120px;
+    text-decoration: none; 
+    color: #afafaf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer a:hover{
+    text-decoration: none;
+    color: #afafaf;
+}
+@media screen and (max-width: 959px) {
+    footer a{
+        line-height: 80px;
+    }
 }

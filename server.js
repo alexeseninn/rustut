@@ -64,7 +64,7 @@ app.use(FileUpload({}));
 
 app.get('/', (req, res) => {
   const title = 'Home';
-  res.render(createPath('index'), { title });
+  res.render(createPath('pseudo'), { title });
 });
 
 app.get('/contacts', (req, res) => {
