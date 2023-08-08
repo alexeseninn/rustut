@@ -62,9 +62,20 @@ app.use(methodOverride('_method'));
 
 app.use(FileUpload({}));
 
+// app.get('/', (req, res) => {
+//   const title = 'Home';
+//   res.render(createPath('pseudo'), { title });
+// });
+
 app.get('/', (req, res) => {
-  const title = 'Home';
-  res.render(createPath('pseudo'), { title });
+  Post
+    .find()
+    .sort({ createdAt: -1 })
+    .then(posts => res.render(createPath('index'), { posts }))
+    .catch((error) => {
+      console.log(error);
+      res.render(createPath('error'), { title: 'Error' });
+    });
 });
 
 app.get('/contacts', (req, res) => {
